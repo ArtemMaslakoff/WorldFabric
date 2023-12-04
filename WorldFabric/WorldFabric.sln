@@ -5,9 +5,11 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldFabric", "WorldFabric\WorldFabric.csproj", "{01F14661-6C1E-4C07-BE41-756B139F728F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldFabricCore", "WorldFabricCore\WorldFabricCore.csproj", "{DC5CA7BD-B3BA-4937-AC81-37E1136AF48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldFabricCore", "WorldFabricCore\WorldFabricCore.csproj", "{DC5CA7BD-B3BA-4937-AC81-37E1136AF48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldFabricCoreTests", "WorldFabricCoreTests\WorldFabricCoreTests.csproj", "{BD2F49CC-41E6-42CC-A490-8331CE540715}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldFabricCoreTests", "WorldFabricCoreTests\WorldFabricCoreTests.csproj", "{BD2F49CC-41E6-42CC-A490-8331CE540715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldFabricConsoleTests", "WorldFabricConsoleTests\WorldFabricConsoleTests.csproj", "{37AE5308-DF61-4E9C-BCD4-862418847DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BD2F49CC-41E6-42CC-A490-8331CE540715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD2F49CC-41E6-42CC-A490-8331CE540715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD2F49CC-41E6-42CC-A490-8331CE540715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37AE5308-DF61-4E9C-BCD4-862418847DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AE5308-DF61-4E9C-BCD4-862418847DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AE5308-DF61-4E9C-BCD4-862418847DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AE5308-DF61-4E9C-BCD4-862418847DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,6 @@
-﻿namespace WorldFabricCore
+﻿using WorldFabricCore.Core;
+
+namespace WorldFabricCore
 {
     public static class WorldCreator 
     {
