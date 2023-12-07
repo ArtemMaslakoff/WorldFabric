@@ -10,6 +10,9 @@ namespace WorldFabricCoreTests
         [TestMethod]
         public void FunctionCloneTests()
         {
+            Vector mainVector = new Vector(4, new double[] { 3, 6, 2, 11});
+            Vector resultVector = mainVector.Clone();
+
 
         }
         [TestMethod]
@@ -34,36 +37,6 @@ namespace WorldFabricCoreTests
         }
         [TestMethod]
         public void OperatorSubTests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator==Tests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator!=Tests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator<Tests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator>Tests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator<=Tests()
-        {
-
-        }
-        [TestMethod]
-        public void Operator>=Tests()
         {
 
         }

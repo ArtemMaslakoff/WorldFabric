@@ -5,17 +5,33 @@
         protected Position position;
         protected Rotation rotation;
         protected Scale scale;
+        protected int countOfAxes;
         public Transform()
         {
-            position = new Position();
-            rotation = new Rotation();
-            scale = new Scale();
+            countOfAxes = 3;
+            position = new Position(countOfAxes);
+            rotation = new Rotation(countOfAxes);
+            scale = new Scale(countOfAxes);
         }
         public Transform(Position position, Rotation rotation, Scale scale)
         {
-            this.position = position;
-            this.rotation = rotation;
-            this.scale = scale;
+            if (position.GetCountOfAxes() == rotation.GetCountOfAxes() && position.GetCountOfAxes() == scale.GetCountOfAxes())
+            {
+                countOfAxes = position.GetCountOfAxes();
+                this.position = new Position(countOfAxes);
+                this.rotation = new Rotation(countOfAxes);
+                this.scale = new Scale(countOfAxes);
+                for (int i = 0; i < countOfAxes; i++)
+                {
+                    this.position.SetCoordinate(i, position.GetCoordinate(i));
+                    this.rotation.SetRotation(i, rotation.GetRotation(i));
+                    this.scale.SetScale(i, scale.GetScale(i));
+                }
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
         public Position GetPosition()
         {
@@ -28,6 +44,39 @@
         public Scale GetScale()
         {
             return scale;
+        }
+        public void Translate(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            position.Translate(vector);
+        }
+        public void Rotate(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            rotation.Rotate(vector);
+        }
+        public void Scale(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            scale.LocalScale(vector);
+        }
+        public override string ToString()
+        {
+            string result = "Transform: \n";
+            result += "\tCount of axes: " + countOfAxes + "\n";
+            result += "\t" + position.ToString() + "\n";
+            result += "\t" + rotation.ToString() + "\n";
+            result += "\t" + scale.ToString();
+            return result;
         }
     }
     public class Position
@@ -93,6 +142,30 @@
         {
             return countOfAxes;
         }
+        public void Translate(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                coordinates[i] += vector.GetProjection(i);
+            }
+        }
+        public Vector ToVector()
+        {
+            return new Vector(countOfAxes, coordinates);
+        }
+        public override string ToString()
+        {
+            string result = "Position: ( ";
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                result += coordinates[i].ToString() + " ";
+            }
+            return result + ")";
+        }
     }
     public class Rotation
     {
@@ -157,6 +230,30 @@
         {
             return countOfAxes;
         }
+        public void Rotate(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                rotations[i] += vector.GetProjection(i);
+            }
+        }
+        public Vector ToVector()
+        {
+            return new Vector(countOfAxes, rotations);
+        }
+        public override string ToString()
+        {
+            string result = "Rotation: ( ";
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                result += rotations[i].ToString() + " ";
+            }
+            return result + ")";
+        }
     }
     public class Scale
     {
@@ -220,6 +317,30 @@
         public int GetCountOfAxes()
         {
             return countOfAxes;
+        }
+        public void LocalScale(Vector vector)
+        {
+            if (vector.GetCountOfAxes() != countOfAxes)
+            {
+                throw new ArgumentException();
+            }
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                scales[i] += vector.GetProjection(i);
+            }
+        }
+        public Vector ToVector()
+        {
+            return new Vector(countOfAxes, scales);
+        }
+        public override string ToString()
+        {
+            string result = "Scale: ( ";
+            for (int i = 0; i < countOfAxes; i++)
+            {
+                result += scales[i].ToString() + " ";
+            }
+            return result + ")";
         }
     }
 }

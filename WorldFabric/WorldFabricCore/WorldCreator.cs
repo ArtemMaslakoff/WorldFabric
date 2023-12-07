@@ -1,28 +1,37 @@
 ﻿using WorldFabricCore.Core;
+using WorldFabricCore.Core.ParameterCore;
 
 namespace WorldFabricCore
 {
     public static class WorldCreator 
     {
-        public static World CreateWorld(WorldType worldType)
+        public static World CreateWorld(WorldNumericType worldType)
         {
             switch (worldType)
             {
-                case WorldType.DISCRETE:
+                case WorldNumericType.DISCRETE:
                 {
+                    Parameter mass = new Parameter("Mass");
                     return new DiscreteWorldCore.DiscreteWorld();
                 }
-                case WorldType.CONTINUOUS:
+                case WorldNumericType.CONTINUOUS:
                 {
+                    Parameter mass = new Parameter("Mass");
                     return new ContinuousWorldCore.ContinuousWorld();
                 }
             }
             throw new NotImplementedException();
         }
     }
-    public enum WorldType
+    public enum WorldNumericType
     {
         DISCRETE,
         CONTINUOUS
+    }
+    public enum WorldLimitType
+    {
+        AXES_LIMITED,
+        AXES_UNLIMITED,
+        FORM_LIMITED
     }
 }
