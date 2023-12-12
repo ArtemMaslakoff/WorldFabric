@@ -1,4 +1,6 @@
-﻿namespace WorldFabricCore.Core.MathCore
+﻿using WorldFabricCore.Core.MathCore;
+
+namespace WorldFabricCore.Core.TransformCore
 {
     public class Transform
     {

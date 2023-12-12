@@ -1,6 +1,4 @@
-﻿using WorldFabricCore.Core.MathCore;
-
-namespace WorldFabricCore.ContinuousWorldCore.ContinuousMathCore
+﻿namespace WorldFabricCore.Core.TransformCore
 {
     public class ContinuousTransform : Transform
     {

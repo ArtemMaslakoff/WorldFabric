@@ -1,6 +1,4 @@
-﻿using WorldFabricCore.Core.MathCore;
-
-namespace WorldFabricCore.DiscreteWorldCore.DiscreteMathCore
+﻿namespace WorldFabricCore.Core.TransformCore
 {
     public class DiscreteTransform : Transform
     {
